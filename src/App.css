@@ -1,42 +1,44 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+html, body{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: 'Robato', sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.mainHead {
+  height: 100px;
+  top: 0;
+background-color: #4169e1;
+color: white;
+text-align: center;
+padding: 10px 0;
+width: 100%; /* Cover full width */
+z-index: 1000; /* Ensure it's above other lines */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mainHead h1 {
+  font-size: 2em; /* Large title */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+
+.content {
+  display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to the next line */
+    gap: 20px; /* Adjust the space between cards */
+    row-gap: 20px;
+    padding: 20px; /* Padding around the entire grid */
+    justify-content: center; /* Center item in the container */
 }
 
 .card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  background-color: #4169e1;
+  box-shadow: 0 4px 8px rbga(0,0,0,0.5);
+  color: white;
+  border-radius: 5px;
+  padding: 15px;
+  height: 240px;
+  width: 500px;
+  transition: transform 0.3s ease;
 }
