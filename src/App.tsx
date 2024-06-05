@@ -5,7 +5,7 @@ import { Question } from "./componants/Question";
 import { MoveButton } from "./componants/moveButton";
 
 function App() {
-  const [cardIndex, setCardIndex] = useState(2);
+  const [cardIndex, setCardIndex] = useState(0);
   return (
     <>
       <div className="mainHead">
@@ -13,16 +13,28 @@ function App() {
       </div>
 
       <div className="content">
-        <MoveButton
-          name="Previous"
-          onClick={() => setCardIndex(cardIndex - 1)}
-        ></MoveButton>{" "}
         {/*move to previous*/}
+        {cardIndex != 0 ? (
+          <MoveButton
+            name="Previous"
+            onClick={() => setCardIndex(cardIndex - 1)}
+          ></MoveButton>
+        ) : (
+          <p></p>
+        )}
+
         <div className="card">
           <Question qIndex={cardIndex}></Question>
         </div>
-        {/* <MoveButton name="Next" onClick={}></MoveButton>  */}
         {/*move to next*/}
+        {cardIndex != 19 ? (
+          <MoveButton
+            name="Next"
+            onClick={() => setCardIndex(cardIndex + 1)}
+          ></MoveButton>
+        ) : (
+          <p></p>
+        )}
       </div>
     </>
   );
