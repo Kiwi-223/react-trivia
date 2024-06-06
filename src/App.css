@@ -8,28 +8,32 @@ html, body{
 }
 
 .mainHead {
+  /* display: flex; */
+  flex-wrap: wrap;
+  justify-content: center;
   height: 100px;
   top: 0;
-background-color: #4169e1;
-color: white;
-text-align: center;
-padding: 10px 0;
-width: 100%; /* Cover full width */
-z-index: 1000; /* Ensure it's above other lines */
+  background-color: #4169e1;
+  color: white;
+  padding: 10px 0;
+  width: 100%; /* Cover full width */
+  z-index: 1000; /* Ensure it's above other lines */
 }
 
 .mainHead h1 {
+  text-align: center;
+  margin: 10px 0 0;
   font-size: 2em; /* Large title */
 }
 
 
 .content {
   display: flex;
-    flex-wrap: wrap; /* Allows items to wrap to the next line */
-    gap: 20px; /* Adjust the space between cards */
-    row-gap: 20px;
-    padding: 20px; /* Padding around the entire grid */
-    justify-content: center; /* Center item in the container */
+  flex-wrap: wrap; /* Allows items to wrap to the next line */
+  gap: 20px; /* Adjust the space between cards */
+  row-gap: 20px;
+  padding: 20px; /* Padding around the entire grid */
+  justify-content: center; /* Center item in the container */
 }
 
 .card {
@@ -37,8 +41,18 @@ z-index: 1000; /* Ensure it's above other lines */
   box-shadow: 0 4px 8px rbga(0,0,0,0.5);
   color: white;
   border-radius: 5px;
-  padding: 15px;
+  padding: 10px;
   height: 240px;
   width: 500px;
   transition: transform 0.3s ease;
+  
+}
+
+.answerContainer {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap to the next line */
+  gap: 20px; /* Adjust the space between cards */
+  row-gap: 20px;
+  padding: 20px; /* Padding around the entire grid */
+  justify-content: center; /* Center item in the container */
 }
