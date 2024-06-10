@@ -5,6 +5,7 @@ html, body{
   font-family: 'Robato', sans-serif;
   display: flex;
   flex-direction: column;
+  background-color: lightgrey;
 }
 
 .mainHead {
@@ -27,8 +28,17 @@ html, body{
 }
 
 .mainHead p {
-  margin: 15px 0 0;
+  padding: 10px;
+  margin: 20px 0 0;
   font-size: large;
+}
+
+.mainHead button {
+  margin: 10px 0 0;
+  height: 50px;
+  width: 100px;
+  background-color: black;
+  color: white;
 }
 
 .content {
@@ -38,6 +48,7 @@ html, body{
   row-gap: 20px;
   padding: 20px; /* Padding around the entire grid */
   justify-content: center; /* Center item in the container */
+  background-color: lightgrey;
 }
 
 .content .card {
@@ -52,6 +63,12 @@ html, body{
   
 }
 
+.content button {
+  width: 100px;
+  background-color: black;
+  color: white;
+}
+
 .answerContainer {
   display: flex;
   flex-wrap: wrap; /* Allows items to wrap to the next line */
@@ -59,4 +76,5 @@ html, body{
   row-gap: 20px;
   padding: 20px; /* Padding around the entire grid */
   justify-content: center; /* Center item in the container */
+  background-color: lightgrey;
 }

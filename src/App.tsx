@@ -45,6 +45,7 @@ function App() {
   return (
     <>
       <div className="mainHead">
+        <p>Question {questionIndex}/20</p>
         <p>Score: {score}/20</p>
         <h1>Disney Trivia</h1>
         <button onClick={() => handleReset()}>Reset</button>
