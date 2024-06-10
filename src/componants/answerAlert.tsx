@@ -1,31 +1,22 @@
-import { ReactNode } from "react";
+import Alert from "react-bootstrap/Alert";
+
 interface Props {
-  children: ReactNode;
-  onClose: () => void;
+  choice: boolean;
+  answer: string;
 }
 
-{
-  /* <div class="alert alert-success d-flex align-items-center" role="alert">
-  <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-  <div>
-    An example success alert with an icon
-  </div>
-</div> */
-}
+const AnswerAlert = ({choice, answer}: Props) => {
+  if (choice === true) {
+    return <Alert variant="success">
+      <Alert.Heading>Correct!</Alert.Heading></Alert>;
+  } else {
+    return <Alert variant="danger">
+<Alert.Heading>Incorrect.</Alert.Heading>
+<p> The correct answer is {answer}</p>
+    </Alert>;
+  }
 
-const answerAlert = ({ children, onClose }: Props) => {
-  return (
-    <div className="alert alert-primary lert-dismissible">
-      {children}
-      <button
-        type="button"
-        className="btn-close"
-        onClick={onClose}
-        data-bs-dismiss="alert"
-        aria-label="Close"
-      ></button>
-    </div>
-  );
+  
 };
 
-export default answerAlert;
+export default AnswerAlert;
