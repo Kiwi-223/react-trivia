@@ -26,6 +26,10 @@ html, body{
   font-size: 2em; /* Large title */
 }
 
+.mainHead p {
+  margin: 15px 0 0;
+  font-size: large;
+}
 
 .content {
   display: flex;

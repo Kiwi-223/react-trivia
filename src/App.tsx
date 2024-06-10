@@ -9,6 +9,12 @@ function App() {
   const curentQ = triviaList[questionIndex];
   const [answerAlert, setAnswerAlert] = useState(false);
   const [correctAnswer, setCorrectAnswer] = useState(false);
+  const [score, setScore] = useState(0);
+  const handleReset = () => {
+    handleMove("Reset");
+    setAnswerAlert(false);
+    setScore(0);
+  };
   const handleMove = (direction: string) => {
     if (direction === "Next") {
       setQuestionIndex(questionIndex + 1);
@@ -21,21 +27,27 @@ function App() {
     }
     setAnswerAlert(false);
   };
+
+  //
   const handleAnswer = (answer: string, choice: string) => {
     // console.log(choice);
-    if (choice === answer) {
-      setCorrectAnswer(true);
-    } else {
-      setCorrectAnswer(false);
-    }
     setAnswerAlert(true);
+    if (choice === answer && answerAlert != true) {
+      setCorrectAnswer(true);
+      setScore(score + 1);
+    } else {
+      if (answerAlert != true) {
+        setCorrectAnswer(false);
+      }
+    }
   };
 
   return (
     <>
       <div className="mainHead">
+        <p>Score: {score}/20</p>
         <h1>Disney Trivia</h1>
-        <button onClick={() => handleMove("Reset")}>Reset</button>
+        <button onClick={() => handleReset()}>Reset</button>
       </div>
       <div>
         {answerAlert && (
@@ -44,8 +56,6 @@ function App() {
             choice={correctAnswer}
           ></AnswerAlert>
         )}
-        {/* add incorret/correct/blank title */}
-        {/* also att current score and top score here */}
       </div>
       <div className="content">
         {/*move to previous*/}
