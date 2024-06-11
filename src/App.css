@@ -2,39 +2,37 @@ html, body{
   margin: 0;
   padding: 0;
   width: 100%;
-  font-family: 'Robato', sans-serif;
-  display: flex;
-  flex-direction: column;
   background-color: lightgrey;
 }
 
 .mainHead {
+
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  height: 100px;
-  top: 0;
+  justify-content: space-between; /* Items will be spaced evenly along the main axis */
+  align-items: center; 
   background-color: #4169e1;
   color: white;
-  padding: 10px 0;
   width: 100%; /* Cover full width */
   z-index: 1000; /* Ensure it's above other lines */
 }
 
 .mainHead h1 {
   text-align: center;
-  margin: 10px 25%;
+  padding: 10px;
   font-size: 2em; /* Large title */
 }
 
 .mainHead p {
+  width: 150px;
+  word-wrap: break-word;
+  margin-right: auto;
   padding: 10px;
-  margin: 20px 0 0;
   font-size: large;
 }
 
 .mainHead button {
-  margin: 10px 0 0;
+  margin-left: auto;
+  padding: 10px;
   height: 50px;
   width: 100px;
   background-color: black;
@@ -66,6 +64,12 @@ html, body{
 .content button {
   width: 100px;
   background-color: black;
+  color: white;
+}
+
+.content .void {
+  width: 100px;
+  background-color: darkgrey;
   color: white;
 }
 
