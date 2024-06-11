@@ -58,6 +58,8 @@ html, body{
   height: 240px;
   width: 500px;
   transition: transform 0.3s ease;
+  line-height: 240px; 
+  
   
 }
 
