@@ -10,10 +10,13 @@ function App() {
   const [answerAlert, setAnswerAlert] = useState(false);
   const [correctAnswer, setCorrectAnswer] = useState(false);
   const [score, setScore] = useState(0);
+  const [answeredQuestions, setAnsweredQuestions] = useState<number[]>([]);
+
   const handleReset = () => {
-    handleMove("Reset");
+    setQuestionIndex(0);
     setAnswerAlert(false);
     setScore(0);
+    setAnsweredQuestions([]);
   };
   const handleMove = (direction: string) => {
     if (direction === "Next") {
@@ -22,42 +25,39 @@ function App() {
     if (direction === "Previous") {
       setQuestionIndex(questionIndex - 1);
     }
-    if (direction === "Reset") {
-      setQuestionIndex(0);
-    }
     setAnswerAlert(false);
   };
 
-  //
   const handleAnswer = (answer: string, choice: string) => {
-    // console.log(choice);
     setAnswerAlert(true);
     if (choice === answer && answerAlert != true) {
       setCorrectAnswer(true);
-      setScore(score + 1);
+      if (!answeredQuestions.includes(questionIndex)) {
+        console.log({ answeredQuestions });
+        setScore(score + 1);
+      }
     } else {
       if (answerAlert != true) {
         setCorrectAnswer(false);
       }
     }
+    setAnsweredQuestions((answeredQuestions) => [
+      ...answeredQuestions,
+      questionIndex,
+    ]);
   };
 
   return (
     <>
       <div className="mainHead">
-        <p>Question {questionIndex}/20</p>
-        <p>Score: {score}/20</p>
+        <p>
+          Question {questionIndex + 1}/20 Score: {score}/20
+        </p>
+        {/* <p>Score: {score}/20</p> */}
         <h1>Disney Trivia</h1>
         <button onClick={() => handleReset()}>Reset</button>
       </div>
-      <div>
-        {answerAlert && (
-          <AnswerAlert
-            answer={curentQ.answer}
-            choice={correctAnswer}
-          ></AnswerAlert>
-        )}
-      </div>
+
       <div className="content">
         {/*move to previous*/}
         {questionIndex != 0 ? (
@@ -66,12 +66,11 @@ function App() {
             onClick={() => handleMove("Previous")}
           ></MoveButton>
         ) : (
-          <p></p>
+          <button className="void">Previous</button>
         )}
         <div className="card">
           <h2>{triviaList[questionIndex].question}</h2>
         </div>
-
         {/*move to next*/}
         {questionIndex != 19 ? (
           <MoveButton
@@ -79,9 +78,10 @@ function App() {
             onClick={() => handleMove("Next")}
           ></MoveButton>
         ) : (
-          <p></p>
+          <button className="void">Next</button>
         )}
       </div>
+
       <div className="answerContainer">
         {curentQ.options.map((option) => {
           return (
@@ -90,6 +90,15 @@ function App() {
             </button>
           );
         })}
+      </div>
+
+      <div>
+        {answerAlert && (
+          <AnswerAlert
+            answer={curentQ.answer}
+            choice={correctAnswer}
+          ></AnswerAlert>
+        )}
       </div>
     </>
   );
